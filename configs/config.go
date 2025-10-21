@@ -2,7 +2,7 @@ package configs
 
 type Config struct {
 	Servidor Servidor
-	Balanca  Balanca
+	Balanca  *Balanca
 }
 
 type Servidor struct {
@@ -20,10 +20,10 @@ type Balanca struct {
 }
 
 func NovoConfig() *Config {
-	cfg := &Config{Balanca: Balanca{}}
+	cfg := &Config{Balanca: &Balanca{}}
 	cfg.Servidor.Host = "127.0.0.1"
 	cfg.Servidor.Port = 8082
-	cfg.Servidor.WriteTimeout = 1000
-	cfg.Servidor.ReadTimeout = 1000
+	cfg.Servidor.WriteTimeout = 10000
+	cfg.Servidor.ReadTimeout = 5000
 	return cfg
 }
